@@ -104,7 +104,7 @@ const Game = () => {
 
   const saveScore = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/update-score/", {
+      const res = await fetch("https://backend-xo3u.onrender.com/api/update-score/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: localStorage.getItem("user"), score: fruitCount }),

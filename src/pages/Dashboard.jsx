@@ -16,7 +16,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchScore = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/get-score/", {
+        const res = await fetch("https://backend-xo3u.onrender.com/api/get-score/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
