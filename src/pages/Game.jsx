@@ -97,10 +97,10 @@ const Game = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // 💾 SAVE SCORE
-  useEffect(() => {
-    if (isGameOver) saveScore();
-  }, [isGameOver]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => {
+  if (isGameOver) saveScore();
+}, [isGameOver]);
 
   const saveScore = async () => {
     try {
@@ -170,6 +170,7 @@ const Game = () => {
     }, speedMap[level]);
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [level]);
 
   const restartGame = () => {
