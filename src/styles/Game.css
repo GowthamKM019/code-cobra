@@ -1,0 +1,371 @@
+.game-page {
+  height: 100vh;
+  background: linear-gradient(135deg, #16a34a, #4ade80);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── TOP BAR ── */
+.top-bar {
+  width: 100%;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* LEFT: High Score */
+.high-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* CENTER: Pause — absolute so it doesn't push siblings */
+.pause-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pause-btn button {
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.logout-btn {
+  padding: 4px 12px;
+  background: rgba(239, 68, 68, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+.timer-right {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.timer-right p { margin: 0; }
+
+/* FRUITS - fixed to bottom right */
+.fruits-bottom-right {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+}
+
+.fruits-bottom-right p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+}
+
+.high-score p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* PROFILE */
+/* .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  opacity: 1;
+} */
+
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* increased spacing */
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.logout-btn {
+  margin-top: 4px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid white;
+}
+
+/* SHARED CIRCLE */
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+
+
+/* ── GAME AREA ── */
+.game-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.game-area canvas {
+  border: 3px solid white;
+  border-radius: 15px;
+  background: #0f172a;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+/* ── BOTTOM BAR ── */
+.bottom-bar {
+  width: 100%;
+  padding: 10px 30px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.info-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.info-btn button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid white;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ── CONTROLS ── */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.controls div {
+  display: flex;
+  gap: 6px;
+}
+
+.controls button {
+  width: 52px;
+  height: 52px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  color: #f9f9f9;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.15s;
+}
+
+.controls button:hover {
+  background: #268272f6;
+  border-color: #257143;
+  color: white;
+  transform: scale(0.95);
+}
+
+.controls button:active {
+  transform: scale(0.92);
+  background: #16a34a;
+}
+
+/* ── OVERLAYS ── */
+.pause-overlay,
+.gameover-overlay,
+.info-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+/* PAUSE CARD */
+.pause-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px 40px;
+  width: 300px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.resume-btn,
+.home-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  width: 90%;
+  font-size: 15px;
+}
+
+.resume-btn { background: #22c55e; }
+.resume-btn:hover { background: #16a34a; }
+
+.home-btn { background: #0ea5e9; }
+.home-btn:hover { background: #0284c7; }
+
+/* GAME OVER CARD */
+.gameover-card {
+  background: rgba(126, 126, 99, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  width: 300px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: pop 0.3s ease;
+}
+
+.gameover-overlay button {
+  padding: 10px 20px;
+  background: #53b100;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* INFO CARD */
+.info-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 15px;
+  padding: 30px 40px;
+  color: white;
+  text-align: left;
+  min-width: 280px;
+}
+
+.info-card h2 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 15px;
+  color: #cbd5e1;
+}
+
+.info-card button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background: #22c55e;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.info-card button:hover {
+  background: #16a34a;
+}
