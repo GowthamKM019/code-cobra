@@ -98,9 +98,9 @@ const Game = () => {
   }, []);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-useEffect(() => {
-  if (isGameOver) saveScore();
-}, [isGameOver]);
+  useEffect(() => {
+    if (isGameOver) saveScore();
+  }, [isGameOver]);
 
   const saveScore = async () => {
     try {
