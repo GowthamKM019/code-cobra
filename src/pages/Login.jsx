@@ -32,11 +32,12 @@ const Login = () => {
 
     try {
       const res = await fetch("https://backend-xo3u.onrender.com/api/login/", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, key }),
-      });
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, key }),
+});
 
       const data = await res.json();
 
